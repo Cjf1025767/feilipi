@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021-6-19 21:40:48 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Callouttask" table="callouttask" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="32" not-null="true" />
+        </property>
+        <property name="startdate" type="timestamp">
+            <column name="startdate" length="29" not-null="true" />
+        </property>
+        <property name="expiredate" type="timestamp">
+            <column name="expiredate" length="29" not-null="true" />
+        </property>
+        <property name="trunkid" type="string">
+            <column name="trunkid" length="36" not-null="true" />
+        </property>
+        <property name="workdeptid" type="string">
+            <column name="workdeptid" length="36" not-null="true" />
+        </property>
+        <property name="period" type="int">
+            <column name="period" not-null="true" />
+        </property>
+        <property name="batchid" type="string">
+            <column name="batchid" length="36" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="executions" type="int">
+            <column name="executions" not-null="true" />
+        </property>
+        <property name="finishes" type="int">
+            <column name="finishes" not-null="true" />
+        </property>
+        <property name="nextdate" type="timestamp">
+            <column name="nextdate" length="29" not-null="true" />
+        </property>
+        <property name="agentratio" type="double">
+            <column name="agentratio" precision="17" scale="17" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

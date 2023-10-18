@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-31 17:46:49 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Calloutrecord" table="calloutrecord" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="taskid" type="string">
+            <column name="taskid" length="36" not-null="true" />
+        </property>
+        <property name="phone" type="string">
+            <column name="phone" length="24" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="calluuid" type="string">
+            <column name="calluuid" length="36" not-null="true" />
+        </property>
+        <property name="retrycount" type="int">
+            <column name="retrycount" not-null="true" />
+        </property>
+        <property name="completestatus" type="int">
+            <column name="completestatus" not-null="true" />
+        </property>
+        <property name="completedate" type="timestamp">
+            <column name="completedate" length="26" not-null="true" />
+        </property>
+        <property name="results" type="string">
+            <column name="results" length="45" not-null="true" />
+        </property>
+        <property name="taskorder" type="int">
+            <column name="taskorder" not-null="true" />
+        </property>
+        <property name="executions" type="int">
+            <column name="executions" not-null="true" />
+        </property>
+        <property name="talklength" type="int">
+            <column name="talklength" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

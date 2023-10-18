@@ -1,0 +1,45 @@
+.lock-cell{
+	background:url(/images/lock.png) no-repeat 18px 9px;
+}
+.unlock-cell{
+	background:url(/images/unlock.png) no-repeat 18px 9px;
+}
+.inbound-cell{
+	background:url(/images/inbound16.png) no-repeat 18px 9px;
+}
+.outbound-cell{
+	background:url(/images/outbound16.png) no-repeat 18px 9px;
+}
+.fix-fa-font{
+    margin-right: 10px;
+    font-size: 18px;
+    height: 14px !important;
+}
+.fix-search-btn{
+    top:0px !important;
+}
+#tabText{
+    max-height: 220px;
+    overflow-y:scroll;
+}
+.audio-tab-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.audio-tab-table th{
+	padding: 0;
+    height: 26px;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #F5F5F5;
+}
+.audio-tab-table tr {
+    border: 1px solid #aaa;
+}
+.audio-tab-table td {
+    border: 1px solid #aaa;
+    padding:5px;
+}
+.playing{
+    background-color:#ffff99
+}

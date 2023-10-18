@@ -1,0 +1,12 @@
+.idea
+.git
+.vscode
+sencha-error-*
+/build
+bootstrap.*
+classic.json*
+modern.json*
+/sass/example/bootstrap.js
+/sass/example/bootstrap.json
+/sass/example/bootstrap.jsonp
+/sass/example/example.css

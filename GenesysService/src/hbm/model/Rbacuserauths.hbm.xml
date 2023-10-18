@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-7-7 18:58:24 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Rbacuserauths" table="rbacuserauths" optimistic-lock="version">
+        <id name="userguid" type="string">
+            <column name="userguid" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="roleguid" type="string">
+            <column name="roleguid" length="36" not-null="true" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="64" not-null="true" />
+        </property>
+        <property name="username" type="string">
+            <column name="username" length="32" not-null="true" />
+        </property>
+        <property name="agent" type="string">
+            <column name="agent" length="24" not-null="false" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="128" not-null="false" />
+        </property>
+        <property name="mobile" type="string">
+            <column name="mobile" length="16" not-null="false" />
+        </property>
+        <property name="identifier" type="string">
+            <column name="identifier" length="24" not-null="false" />
+        </property>
+        <property name="logindate" type="timestamp">
+            <column name="logindate" length="26" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="26" not-null="true" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="26" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="weixinid" type="string">
+            <column name="weixinid" length="64" not-null="false" />
+        </property>
+        <property name="alipayid" type="string">
+            <column name="alipayid" length="64" not-null="false" />
+        </property>
+    </class>
+</hibernate-mapping>

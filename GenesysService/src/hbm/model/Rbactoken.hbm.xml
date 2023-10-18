@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-9-18 10:35:48 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Rbactoken" table="rbactoken">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="roleguid" type="string">
+            <column name="roleguid" length="36" not-null="true" />
+        </property>
+        <property name="expiresdate" type="timestamp">
+            <column name="expiresdate" length="19" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="19" not-null="true" />
+        </property>
+        <property name="code" type="string">
+            <column name="code" length="36" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

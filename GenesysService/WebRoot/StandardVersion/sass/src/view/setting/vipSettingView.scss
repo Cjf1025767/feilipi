@@ -1,0 +1,41 @@
+.pure-table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    empty-cells: show;
+    border: 1px solid #cbcbcb;
+	width:100%;
+}
+.pure-table td,.pure-table th {
+    border-left: 1px solid #cbcbcb;
+    border-width: 0 0 0 1px;
+    font-size: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: .5em 1em;
+}
+ 
+.pure-table thead {
+    background-color: #e0e0e0;
+    color: #000;
+    text-align: center;
+    vertical-align: bottom;
+	width:100%;
+}
+ 
+.pure-table td {
+    background-color: transparent;
+	width:20%;
+}
+ 
+.pure-table-bordered td {
+    border-bottom: 1px solid #cbcbcb;
+}
+ 
+.pure-table-bordered tbody>tr:last-child>td {
+    border-bottom-width: 0;
+}
+
+.pure-table input{
+	border:0px; 
+	color:#606060;
+}

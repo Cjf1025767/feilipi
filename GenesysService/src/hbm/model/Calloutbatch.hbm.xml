@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-27 9:42:21 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Calloutbatch" table="calloutbatch" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="64" not-null="true" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="1024" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="26" not-null="true" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="26" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

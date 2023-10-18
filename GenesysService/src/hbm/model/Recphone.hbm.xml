@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021-1-22 21:30:54 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Recphone" table="recphone" optimistic-lock="version">
+        <id name="guidid" type="string">
+            <column name="GUIDID" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="host" type="short">
+            <column name="HOST" not-null="true" />
+        </property>
+        <property name="channel" type="short">
+            <column name="CHANNEL" not-null="true" />
+        </property>
+        <property name="direction" type="short">
+            <column name="DIRECTION" not-null="true" />
+        </property>
+        <property name="caller" type="string">
+            <column name="CALLER" length="32" />
+        </property>
+        <property name="called" type="string">
+            <column name="CALLED" length="32" />
+        </property>
+        <property name="dialup" type="string">
+            <column name="DIALUP" length="64" />
+        </property>
+        <property name="systemtim" type="timestamp">
+            <column name="SYSTEMTIM" length="26" not-null="true" />
+        </property>
+        <property name="seconds" type="long">
+            <column name="SECONDS" not-null="true" />
+        </property>
+        <property name="extension" type="string">
+            <column name="EXTENSION" length="32" />
+        </property>
+        <property name="ipaddress" type="long">
+            <column name="IPADDRESS" not-null="true" />
+        </property>
+        <property name="agent" type="string">
+            <column name="AGENT" length="32" />
+        </property>
+        <property name="holdseconds" type="long">
+            <column name="HOLDSECONDS" not-null="true" />
+        </property>
+        <property name="ringseconds" type="short">
+            <column name="RINGSECONDS" not-null="true" />
+        </property>
+        <property name="holdcount" type="short">
+            <column name="HOLDCOUNT" not-null="true" />
+        </property>
+        <property name="connectedcount" type="short">
+            <column name="CONNECTEDCOUNT" not-null="true" />
+        </property>
+        <property name="filename" type="string">
+            <column name="FILENAME" length="64" />
+        </property>
+        <property name="states" type="short">
+            <column name="STATES" not-null="true" />
+        </property>
+        <property name="userdata" type="string">
+            <column name="USERDATA" length="128" not-null="true" />
+        </property>
+        <property name="ucid" type="string">
+            <column name="UCID" length="45" not-null="true" />
+        </property>
+        <property name="callid" type="long">
+            <column name="CALLID" not-null="true" />
+        </property>
+        <property name="roleid" type="string">
+            <column name="ROLEID" length="36" not-null="true" />
+        </property>
+        <property name="id" type="string">
+            <column name="ID" length="36" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="CREATEDATE" length="26" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

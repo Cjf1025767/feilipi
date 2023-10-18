@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 密码加密配置, 特殊字符<![CDATA[密码]]>-->
+		<property name="hibernate.connection.encryptor_password">0</property>
+		<!-- SQLServer
+		<property name="hibernate.connection.username">36_genesys</property>
+		<property name="hibernate.connection.password">9Cz^h5ARuqOmU9xI@A</property>
+		<property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+		<property name="hibernate.connection.url">jdbc:sqlserver://192.168.8.120:1433;databaseName=gene_callsystem</property>
+ 		<property name="hibernate.dialect">hbm.MSSQLServerDialect</property> -->
+		 
+		<!-- MySQL-->
+		<!-- 
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property> 
+		<property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/customerservices?useSSL=false&amp;serverTimezone=Asia/Shanghai&amp;useUnicode=true&amp;characterEncoding=UTF-8</property>
+		<property name="hibernate.dialect">hbm.MySQLServerDialect</property>-->
+		<!-- PostgreSQL  -->
+		<property name="hibernate.connection.password">odoo</property>
+		<property name="hibernate.connection.username">odoo</property>
+		<property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/odoo14</property>
+		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+		<property name="hibernate.dialect">hbm.PostgreSQLServerDialect</property>
+		<property name="hibernate.default_catalog">public</property>
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property>
+		
+		<!-- Disabling contextual LOB creation as createClob() method threw error 
+		<property name="hibernate.temp.use_jdbc_metadata_defaults">false</property> -->
+		<!-- Oracle xe='oracle express version default sid'  
+		<property name="hibernate.connection.username">rec</property>
+		<property name="connection.driver_class">oracle.jdbc.driver.OracleDriver</property> 
+		<property name="connection.url">jdbc:oracle:thin:@192.168.8.81:1521:orcl</property>
+		<property name="hibernate.dialect">hbm.OracleServerDialect</property>-->
+		<!-- DB2 -->
+		<!-- 
+		<property name="hibernate.connection.username">root</property>
+		<property name="connection.driver_class">com.ibm.db2.jcc.DB2Driver</property> 
+		<property name="connection.url">jdbc:db2://localhost:50000/SAMPLE</property> 
+		<property name="dialect">org.hibernate.dialect.DB2Dialect</property> -->
+		
+		<!-- 打开缓冲池(注意:开发时打开导致Hibernate Tools失败) -->
+		<!-- 
+		<property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property> 
+		<property name="hibernate.cache.provider_configuration_file_resource_path">ehcache.xml</property> 
+		<property name="hibernate.cache.use_second_level_cache">true</property> 
+		<property name="hibernate.cache.use_query_cache">false</property> -->
+					
+		<!-- <property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property> -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.min_size">2</property>
+		<!-- 获得连接的超时时间,如果超过这个时间,会抛出异常，单位毫秒 -->
+		<property name="hibernate.c3p0.timeout">1200</property>
+		<property name="hibernate.c3p0.max_statements">100</property>
+		<!-- 每隔120秒检查连接池里的空闲连接 ，单位是秒 -->
+		<property name="hibernate.c3p0.idle_test_period">120</property>
+		<!-- 当连接池里面的连接用完的时候，C3P0一下获取的新的连接数 -->
+		<property name="hibernate.c3p0.acquire_increment">2</property>
+		<!-- 每次都验证连接是否可用 -->
+		<property name="hibernate.c3p0.validate">true</property>
+		<!-- Statement读取数据的时候每次从数据库中取出的记录条数 -->
+		<property name="hibernate.jdbc.batch_size">1000</property>
+		<!-- Hibernate Search全文检索 -->
+		<property name="hibernate.search.autoregister_listeners">false</property>
+		<!-- 性能分析统计 -->
+		<property name="hibernate.generate_statistics">false</property>
+		<property name="hibernate.show_sql">false</property>
+		
+		<mapping resource="hbm/model/Rbacuser.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacrole.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacroleuser.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacoperation.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacroleoperation.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacuserauths.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacroleinfo.hbm.xml"/>
+		<mapping resource="hbm/model/Rbactoken.hbm.xml"/>
+		<mapping resource="hbm/model/Recextension.hbm.xml"/>
+		<mapping resource="hbm/model/Recfiles.hbm.xml"/>
+		<mapping resource="hbm/model/Recphone.hbm.xml"/>
+		<mapping resource="hbm/model/Reccontent.hbm.xml"/>
+		<mapping resource="hbm/model/Rbacauditlog.hbm.xml"/>
+		<mapping resource="hbm/model/Callholidays.hbm.xml"/>
+		<mapping resource="hbm/model/Callouttrunk.hbm.xml"/>
+		<mapping resource="hbm/model/Calloutbatch.hbm.xml"/>
+		<mapping resource="hbm/model/Calloutrecord.hbm.xml"/>
+		<mapping resource="hbm/model/Callouttask.hbm.xml"/>
+		<mapping resource="hbm/model/Calloutphone.hbm.xml"/>
+		<mapping class="hbm.model.RbacroleEx"/>
+		<mapping class="hbm.model.RecfilesEx"/>
+		<mapping class="hbm.model.RecphoneEx"/>
+		<mapping class="hbm.model.CallouttaskEx"/>
+		<mapping class="hbm.model.CalloutrecordEx"/>
+    </session-factory>
+</hibernate-configuration>

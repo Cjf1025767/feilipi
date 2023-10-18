@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签必须放在最前面 -->
+<link rel="icon" href="favicon.ico">
+<title>登录页面</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/login.css" rel="stylesheet" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/md5.min.js"></script>
+<script type="text/javascript">
+function GetRequest() {
+    var url = location.search; //获取url中"?"符后的字串
+    var theRequest = new Object();
+    if (url.indexOf("?") != -1) {
+        var str = url.substr(1);
+        strs = str.split("&");
+        for(var i = 0; i < strs.length; i ++) {
+            theRequest[strs[i].split("=")[0]] = decodeURI(strs[i].split("=")[1]);
+        }
+    }
+    return theRequest;
+}
+var request = GetRequest();
+var username = request['username'];
+var redirect = request['redirect'];
+if(typeof username != 'undefined'){
+	window.addEventListener('mousemove',function(){
+		if(typeof redirect == 'undefined'){
+			window.location.replace("/tab/oauth2/authorize?response_type=redirect&appid=mmEbb1ZkTEOdBsHiFBzMsQ&secret=uttoL-oHRjaJdxtcVh6O4A&state="+username+"&redirect_uri=/StandardVersion/index.html?username="+username+"%23monitorView");
+		}else if(redirect=='recordings'){
+		
+			window.location.replace("/tab/oauth2/authorize?response_type=redirect&appid=mmEbb1ZkTEOdBsHiFBzMsQ&secret=EpFmwRyfReqqHgNFsMKTcw&state="+username+"&redirect_uri=/StandardVersion/index.html?username="+username+"%26nolist=1%23cdr_voice");
+		}
+		else if(redirect=='miss_calls'){
+		
+			window.location.replace("/tab/oauth2/authorize?response_type=redirect&appid=mmEbb1ZkTEOdBsHiFBzMsQ&secret=EpFmwRyfReqqHgNFsMKTcw&state="+username+"&redirect_uri=/StandardVersion/index.html?username="+username+"%26nolist=1%23miss_calls");
+		}
+	});
+}
+</script>
+</head>
+<body>
+   	<div class="container vertical-center">
+    </div> <!-- /container -->
+   	<footer class="footer">
+      	<div class="container">
+        	<p class="text-muted">Copyright ©2019 Tab Computer Technology Co.,Ltd. All Rights Reserved.</p>
+      	</div>
+   	</footer>
+	<iframe name='hidden_frame' id="hidden_frame" style="display:none"></iframe>
+</body>
+</html>

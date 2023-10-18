@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021-2-3 16:55:55 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Reccontent" table="reccontent" optimistic-lock="version">
+        <composite-id name="id" class="hbm.model.ReccontentId">
+            <key-property name="id" type="string">
+                <column name="id" length="36" />
+            </key-property>
+            <key-property name="channel" type="int">
+                <column name="channel" />
+            </key-property>
+            <key-property name="filestart" type="int">
+                <column name="filestart" />
+            </key-property>
+            <key-property name="fileend" type="int">
+                <column name="fileend" />
+            </key-property>
+        </composite-id>
+        <property name="audiocontent" type="string">
+            <column name="audiocontent" length="128" not-null="true" />
+        </property>
+        <property name="starttime" type="long">
+            <column name="starttime" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

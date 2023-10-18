@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签必须放在最前面 -->
+<link rel="icon" href="favicon.ico">
+<title>登录页面</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/login.css" rel="stylesheet" />
+<!--[if lt IE 9]>
+  <script src="js/html5shiv.min.js"></script>
+  <script src="js/respond.min.js"></script>
+<![endif]-->
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/md5.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	if(navigator.userAgent.indexOf("MSIE 7.0")>0 || navigator.userAgent.indexOf("MSIE 8.0")>0){
+		var offset = $(".vertical-center").offset();
+		$(".vertical-center").css("top",offset.top - 200);
+		$(".vertical-center").css("left",offset.left - 600);
+	}
+	$('#frmlogin').bind('submit', function(){
+		$("#loginBtn").attr("disabled", true).addClass("disabled");
+		var name = $("#inputUsername").val();
+		var tokenType = 0;//username
+		if(/^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/.test(name)){
+			tokenType = 3;//email
+		}else if(/^1\d{10}$/.test(name)){
+			//11位数字，以1开头
+			tokenType = 2;//mobile
+		}else if(/^[a-zA-z]\w{3,28}$/.test(name)){
+			//字母、数字、下划线组成，字母开头，4-16位
+			tokenType = 0;//username
+		}else if(/^\d{3,8}$/.test(name)){
+			//数字3-8位
+			tokenType = 0;//username
+		}else if(/^[^a-zA-Z0-9]{2,10}$/.test(name)){
+			//非英文和数字
+			tokenType = 0;//username
+		}else{
+			$("#loginBtn").attr("disabled", false).removeClass("disabled");
+			$("#loginNameError").animate({opacity:1},0,function(){$("#loginNameError").animate({opacity:0},5000);});
+			return false;
+		}
+		$.post("/tab/rbac/UILogin",{type:tokenType,token:$("#inputUsername").val(),password:md5($("#inputPassword").val())},
+			function(v){
+				if(v!=null && v.success){
+					window.location.replace("/StandardVersion/index.html");
+				}else{
+					$("#loginBtn").attr("disabled", false).removeClass("disabled");
+					$("#loginError").animate({opacity:1},0,function(){$("#loginError").animate({opacity:0},5000);});
+				}
+			}
+		);
+		return false;
+	});
+});
+function QCodeLoad()
+{
+	var qrcode = $(".qrcode");
+	var qrcodeImage = qrcode.attr('src');
+	if(qrcodeImage=="images/qrcode_init.png"){
+		console.time("QRCode");
+		$.ajax({
+			type:'POST',
+			data:{"type":"1"},
+			dataType:'json', 
+			contentType: 'application/x-www-form-urlencoded',
+			url: "/tab/rbac/QRCode",
+			success: function(qrdata) {
+				console.timeEnd("QRCode");
+				console.debug("QRCode:" + qrdata.success);
+				if(qrdata.success){
+					qrcode.attr("src",qrdata.data);
+					if(typeof qrdata.eventcode !='undefined'){
+						$.ajax({
+							type: "POST",
+							dataType:'json', 
+							contentType: 'application/x-www-form-urlencoded',
+							url: "/tab/rbac/QRCodeWaitScan",
+							success: function(scandata){
+								if(scandata.success){
+									qrcode.attr('src',"images/qrcode.png");
+									qrcode.attr('atl',scandata.msg);
+									$.ajax({
+										type: "POST",
+										dataType:'json', 
+										contentType: 'application/x-www-form-urlencoded',
+										url: "/tab/rbac/QRCodeWaitLogin",
+										success: function(logindata){
+											console.debug("QRCodeWaitLogin:" + logindata.success);
+											if(logindata.success){
+												window.location.replace("/StandardVersion/index.html");
+											}else{
+												qrcode.attr('src',"images/qrcode_error.png");
+												qrcode.attr('atl',logindata.msg);
+												qrcode.click(function(){qrcode.attr('src',"images/qrcode_init.png");});
+											}
+										}
+									});
+								}else{
+									if(scandata.timeout){
+										qrcode.attr('src',"images/qrcode_timeout.png");
+										qrcode.attr('atl',scandata.msg);
+									}else{
+										qrcode.attr('src',"images/qrcode_error.png");
+										qrcode.attr('atl',scandata.msg);
+									}
+									qrcode.click(function(){qrcode.attr('src',"images/qrcode_init.png");});
+								}
+							}
+						});
+					}
+				}else{
+					qrcode.attr('src',"images/qrcode_error.png");
+					qrcode.click(function(){qrcode.attr('src',"images/qrcode_init.png");});	
+				}
+			},
+			error:function(qrdata){
+				qrcode.attr('src',"images/qrcode_error.png");
+				qrcode.click(function(){qrcode.attr('src',"images/qrcode_init.png");});
+			}
+		});
+		return;
+	}
+}
+</script>
+</head>
+<body>
+   	<div class="container vertical-center">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+				<div class="row">
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+						<div class="left_text_wrap">
+							<!-- <h1>Call Management System</h1>
+							<h3>Direct Professional Services</h3> --!>
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6" >
+						<form class="form-signin" role="form" id="frmlogin" method="post" target="hidden_frame">
+							<h3 class="form-signin-heading" style="padding-left:50px">Genesys</h3>
+							<h3 class="form-signin-heading" style="width:210px">My Managerment</h3>
+							<ul class="nav nav-tabs" role="tablist">
+							<!-- <li class="active"><a href="#account" data-toggle="tab">Account-login</a></li> --!>
+							<!-- <li><a href="#qcode" data-toggle="tab">WeChat Scavenging</a></li> --!>
+							</ul>
+							<div class="tab-content">
+								<div class="tab-pane fade active in" id="account">
+									<label for="inputUsername" class="sr-only">Username</label>
+									<input type="text" id="inputUsername" class="form-control" placeholder="User Name" required autofocus>
+									<label for="inputPassword" class="sr-only">Password</label>
+									<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+									<button id="loginBtn" class="btn btn-lg btn-primary btn-block" type="submit" style="background-color:#2A60C8; width:200px ">Log In</button>
+									<div id="loginError" style="opacity:0;height:30px;padding:5px;" class="alert alert-warning" role="alert">Login Error</div>
+									<div id="loginNameError" style="opacity:0;height:30px;padding:5px;" class="alert alert-warning" role="alert">Incorrect Login Format</div>
+								</div>
+								<div class="tab-pane fade in text-center" style="background:#FFF;" id="qcode">
+									<img class='qrcode' src='images/qrcode_init.png' onload='QCodeLoad()' />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2"></div>
+		</div>
+    </div> <!-- /container -->
+   	<footer class="footer">
+      	<div class="container">
+        	<p class="text-muted">Copyright ©2019 Tab Computer Technology Co.,Ltd. All Rights Reserved.</p>
+      	</div>
+   	</footer>
+	<iframe name='hidden_frame' id="hidden_frame" style="display:none"></iframe>
+</body>
+</html>

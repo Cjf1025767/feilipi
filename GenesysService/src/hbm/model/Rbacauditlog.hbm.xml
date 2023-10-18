@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021-10-30 15:02:44 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Rbacauditlog" table="rbacauditlog" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="resourcename" type="string">
+            <column name="resourcename" length="18" not-null="true" />
+        </property>
+        <property name="resourceid" type="string">
+            <column name="resourceid" length="36" not-null="true" />
+        </property>
+        <property name="userguid" type="string">
+            <column name="userguid" length="36" not-null="true" />
+        </property>
+        <property name="updatetime" type="timestamp">
+            <column name="updatetime" length="26" not-null="true" />
+        </property>
+        <property name="operationname" type="string">
+            <column name="operationname" length="64" not-null="true" />
+        </property>
+        <property name="operationstatus" type="int">
+            <column name="operationstatus" not-null="true" />
+        </property>
+        <property name="operationvalue" type="string">
+            <column name="operationvalue" length="512" />
+        </property>
+    </class>
+</hibernate-mapping>

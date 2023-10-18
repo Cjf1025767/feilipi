@@ -1,0 +1,178 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <title>客户中心</title>
+    <link href="softphone/css/softphone.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://127.0.0.1:8069/im_livechat/external_lib.css"/>
+ <script type="text/javascript" src="http://127.0.0.1:8069/im_livechat/external_lib.js"></script>
+   <script type="text/javascript" src="http://127.0.0.1:8069/im_livechat/loader/1"></script>
+			
+			
+	<style type="text/css">
+
+       /* @media screen and (max-width: 1366px) {
+            .abc {width: 800px}
+        }
+        @media screen and (min-width: 1024px) {
+            .abc {width: 1366px}
+        }*/
+    </style>
+    <script src="softphone/MyPhoner.cfg.js"></script>
+    <script src="softphone/MyPhoner.js"></script>
+    <script src="softphone/softphone.js"></script>
+</head>
+<body class="body">
+<div>
+<div class="div-top" id="ceshi" >
+
+	     <div class="div-pic2" style="width:17.5px;"></div>
+        <div class="div-top2">
+            <div class="div-pic3">
+                <ul class="typename">
+                    <li class="typenameshow">座席号：</li>
+                    <li class="typenameshowre" id="agentID"></li>
+                    <li class="typenameshowre">分机：</li>
+                    <li class="typenameshowre" id="agentDN"></li>
+                    <li class="typenameshow">状态：</li>
+                    <li class="typenameshowre" id="statusLED"></li>
+                </ul>
+            </div>
+            <div class="div-pic4">
+                <div style="width: 100%;display: inline-block;margin-top: -20px;padding-left: 0px">
+                    <ul style="list-style-type: none;width:120%;padding-left: 10px">
+                        <li class="button-li">
+                            <input type="button" name="" class="button current" value="连接" onclick="AgentLogin()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="断开" onclick="AgentLogOut()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="就绪" onclick="UserReady()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+						
+						   <li class="button-li">
+                            <input type="button" name="" class="button" value="未就绪" onclick="UserNotReady()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                       
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button current1" value="退出" onclick="window.close()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="应答" onclick="UserAnswerCall()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="挂机" onclick="UserHangupCall()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="呼出" onclick="UserDial()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                   
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="保持" onclick="UserHold()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+						  <li class="button-li">
+                            <input type="button" name="" class="button" value="取回" onclick="UserReconnect()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+						
+                      <!--  
+					  
+					       <li class="button-li">
+                            <input type="button" name="" class="button" value="转接" onclick="showTransferDialog()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="强插" onclick="UserConference()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                        <li class="button-li">
+                            <input type="button" name="" class="button" value="咨询" onclick="showConsultDialog()"/>
+                        </li>
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+					  <li class="button-li">
+                            <input type="button" name="" class="button" value="强拆" onclick="UserReconnect()"/>
+                        </li>
+						 <li style="display: inline;width: 5%;margin-right:2px;float: left;margin-top: -1px">
+                            <select name="select" class="select" id="notReadyStatus">
+							 
+                                <option onclick="UserNotReady()"  value="0" id="notreadyoption" style="background-color:#9999ff">
+								未就绪</option>
+                                <option onclick="UserNotReady(2)" value="2" style="background-color:#9999ff">小休</option>
+                                <option onclick="UserNotReady(3)" value="3" style="background-color:#9999ff">会议</option>
+                                <option onclick="UserNotReady(4)" value="4" style="background-color:#9999ff">用餐</option>
+                            </select>
+                        </li>
+						-->
+                        <li class="spacerli">
+                            <img src="softphone/images/spacer.gif" width="4" height="5" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+       <div class="div-pic5"></div>
+	   </div>
+	 
+</div>
+  <div style="width:500px;height:600px;overflow:auto">
+
+	<button onclick="javascript:clearEnent();">清除事件</button>
+    <table class="table table-bordered m-custom-table"  id="eventlist">
+                  <thead>
+                    <tr>
+                      <th data-align="center">序号</th>
+					  <th data-align="center">分机</th>
+                      <th data-align="center">事件</th>
+                      <th data-align="center">发生时间</th>
+                     
+                    </tr>
+                  </thead>
+                  <tbody id="tablebody">
+                 
+                  </tbody>
+                </table>
+	
+  </div>
+  
+  </div>
+</body>
+</html>

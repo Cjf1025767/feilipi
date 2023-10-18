@@ -1,0 +1,86 @@
+.nav-tree-badge:after {
+    position: absolute;
+    height: 18px;
+    width: 3.3em;
+    display: inline-block;
+    text-align: center;
+    top: 50%;
+    margin-top: -9px;
+    right: 12px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 18px;
+}
+.dataview-multisort-item {
+    display: flex;
+    width:200px;
+    height:70px;
+    border-radius:10px;
+    border:1px solid  #000;
+    float: left;
+    padding: 1px;
+    margin: 8px 8px 4px 8px;
+}
+.logoutbutton {
+    background-color: #B8B8B8;
+}
+.busybutton {
+    background-color:#FF8A65;
+}
+.freebutton {
+    background-color: #4DB6AC;
+}
+.transactionbutton {
+    background-color:#FFB74D;
+}
+.sortbutton {
+    background-color: burlywood;
+}
+.x-grid-record-red { 
+	background-color: #FF0000; 
+	} 
+	.xxx{
+        background-color:turquoise;
+	}
+	.x-grid-record-black { 
+        background-color: black; 
+	  } 
+	  .x-grid-record-gray { 
+        background-color:#B8B8B8;
+		} 
+	  .x-grid-record-green { 
+          background-color: #98FB98;
+		} 
+		.x-grid-record-blue { 
+            background-color: blue; 
+		  } 
+		  .x-grid-record-yellowgreen { 
+			background-color:#CAFF70 
+			} 
+.nav-tree-badge-hot:after {
+    content: "HOT";
+    background-color: #e3495a;
+}
+
+.nav-tree-badge-new:after {
+    content: "NEW";
+    background-color: $color-soft-blue;
+}
+
+.pop-out {
+    @include box-shadow(2px 2px 8px 2px #ccc);
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.x-fa {
+    &.fa-google-plus {
+        min-width: 16px;
+        width: auto;
+    }
+}
+
+

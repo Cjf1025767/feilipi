@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-9-18 13:24:26 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Rbacroleinfo" table="rbacroleinfo">
+        <id name="roleguid" type="string">
+            <column name="roleguid" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="secret" type="string">
+            <column name="secret" length="36" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="19" not-null="true" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="19" not-null="true" />
+        </property>
+        <property name="redirecturi" type="string">
+            <column name="redirecturi" length="65" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

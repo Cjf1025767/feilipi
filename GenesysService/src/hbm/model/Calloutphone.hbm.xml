@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-28 9:28:15 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Calloutphone" table="calloutphone" optimistic-lock="version">
+        <composite-id name="id" class="hbm.model.CalloutphoneId">
+            <key-property name="batchid" type="string">
+                <column name="batchid" length="36" />
+            </key-property>
+            <key-property name="phone" type="string">
+                <column name="phone" length="24" />
+            </key-property>
+        </composite-id>
+        <property name="taskorder" type="int">
+            <column name="taskorder" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

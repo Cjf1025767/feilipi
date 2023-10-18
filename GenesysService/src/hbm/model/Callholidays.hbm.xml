@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2021-12-2 0:31:09 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Callholidays" table="callholidays" optimistic-lock="version">
+        <id name="callholidayid" type="string">
+            <column name="callholidayid" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="id" type="int">
+            <column name="id" not-null="true" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" length="45" not-null="true" />
+        </property>
+        <property name="activate" type="int">
+            <column name="activate" not-null="true" />
+        </property>
+        <property name="startdate" type="timestamp">
+            <column name="startdate" length="29" not-null="true" />
+        </property>
+        <property name="starttime" type="timestamp">
+            <column name="starttime" length="29" />
+        </property>
+        <property name="endtime" type="timestamp">
+            <column name="endtime" length="29" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="29" not-null="true" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="29" not-null="true" />
+        </property>
+        <property name="dept" type="string">
+            <column name="dept" length="24" not-null="true" />
+        </property>
+         <property name="phone" type="string">
+            <column name="phone" length="24" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

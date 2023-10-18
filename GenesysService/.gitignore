@@ -1,0 +1,12 @@
+sqlite-*
+/bin
+.DS_Store
+*.DS_Store
+.idea
+.git
+
+<<<<<<< HEAD
+/hibernate.cfg.xml
+=======
+/.metadata/
+>>>>>>> 40613432f590cb8d6932204d890c2f0c31d2e4bf

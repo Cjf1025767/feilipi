@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-7-3 16:07:44 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Rbacoperation" table="rbacoperation">
+        <id name="operationguid" type="string">
+            <column name="operationguid" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="operationname" type="string">
+            <column name="operationname" length="64" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

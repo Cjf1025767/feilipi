@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-7-15 15:11:51 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Recextension" table="recextension">
+        <id name="extension" type="string">
+            <column name="extension" length="6" />
+            <generator class="assigned" />
+        </id>
+        <property name="roleguid" type="string">
+            <column name="roleguid" length="36" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

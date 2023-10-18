@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2019-5-24 15:31:52 by Hibernate Tools 4.3.5.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Callouttrunk" table="callouttrunk" optimistic-lock="version">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" length="64" not-null="true" />
+        </property>
+        <property name="trunk" type="string">
+            <column name="trunk" length="32" not-null="true" />
+        </property>
+        <property name="intercurrent" type="int">
+            <column name="intercurrent" not-null="true" />
+        </property>
+        <property name="delay" type="int">
+            <column name="delay" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="26" not-null="true" />
+        </property>
+        <property name="updatedate" type="timestamp">
+            <column name="updatedate" length="26" not-null="true" />
+        </property>
+        <property name="status" type="int">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="maxretrycount" type="int">
+            <column name="maxretrycount" not-null="true" />
+        </property>
+        <property name="timetolive" type="int">
+            <column name="timetolive" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2018-7-15 15:11:51 by Hibernate Tools 4.0.1.Final -->
+<hibernate-mapping>
+    <class name="hbm.model.Recfiles" table="recfiles">
+        <id name="id" type="string">
+            <column name="id" length="36" />
+            <generator class="assigned" />
+        </id>
+        <property name="agent" type="string">
+            <column name="agent" length="16" not-null="true" />
+        </property>
+        <property name="caller" type="string">
+            <column name="caller" length="36" not-null="true" />
+        </property>
+        <property name="called" type="string">
+            <column name="called" length="36" not-null="true" />
+        </property>
+        <property name="channel" type="int">
+            <column name="channel" not-null="true" />
+        </property>
+        <property name="direction" type="int">
+            <column name="direction" not-null="true" />
+        </property>
+        <property name="extension" type="string">
+            <column name="extension" length="6" not-null="true" />
+        </property>
+        <property name="filename" type="string">
+            <column name="filename" length="128" not-null="true" />
+        </property>
+        <property name="host" type="int">
+            <column name="host" not-null="true" />
+        </property>
+        <property name="seconds" type="int">
+            <column name="seconds" not-null="true" />
+        </property>
+        <property name="states" type="int">
+            <column name="states" not-null="true" />
+        </property>
+        <property name="createdate" type="timestamp">
+            <column name="createdate" length="19" not-null="true" />
+        </property>
+        <property name="ucid" type="string">
+            <column name="ucid" length="36" not-null="true" />
+        </property>
+        <property name="userdata" type="string">
+            <column name="userdata" length="128" not-null="true" />
+        </property>
+        <property name="roleid" type="string">
+            <column name="roleid" length="36" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
